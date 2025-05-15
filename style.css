@@ -1,0 +1,354 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background-color: #1a2a3a; /* Darker background */
+    background-image: linear-gradient(to bottom, #1a2a3a, #2c3e50); /* Subtle gradient */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+header {
+    background: #0d1b2a; /* Even darker header */
+    color: #ecf0f1;
+    padding: 30px 0;
+    min-height: 80px;
+    border-bottom: #e74c3c 4px solid;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+.site-title {
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit color from parent */
+    display: inline-block; /* Allow padding/margin */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.site-title:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+
+header h1 {
+    margin: 0;
+    font-size: 3em; /* Larger heading */
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+
+header p {
+    margin-bottom: 0;
+    font-size: 1.2em;
+    color: #bdc3c7; /* Lighter subtitle color */
+}
+
+nav {
+    background: #e74c3c; /* Accent color for nav */
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: sticky; /* Make nav sticky */
+    top: 0; /* Stick to the top */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 15px 25px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    position: relative; /* Needed for underline effect */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Position below text */
+    width: 0; /* Start with no width */
+    height: 2px;
+    background-color: #2c3e50; /* Dark underline color */
+    transition: width 0.3s ease; /* Smooth width transition */
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%; /* Expand underline on hover/active */
+}
+
+nav a:hover,
+nav a.active {
+    color: #2c3e50; /* Darker color on hover/active */
+    transform: translateY(-2px); /* Slight lift on hover/active */
+}
+
+.main-content {
+    display: flex;
+    gap: 30px;
+    padding: 30px 0;
+    flex-wrap: wrap;
+}
+
+/* Style for pages without sidebars */
+.main-content.full-width {
+    justify-content: center; /* Center the content area */
+}
+
+.content-area {
+    flex: 3;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+    min-width: 320px;
+    /* Animation applied via JS */
+}
+
+.sidebar {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Animation applied via JS */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .main-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .sidebar, .content-area {
+        width: 100%;
+        min-width: auto;
+    }
+     /* Animation applied via JS */
+}
+
+@media (max-width: 576px) {
+     nav ul li {
+        display: block;
+        padding: 10px 0;
+    }
+     header h1 {
+         font-size: 2em;
+     }
+     header p {
+         font-size: 1em;
+     }
+}
+
+
+.ad-space {
+    border: 2px dashed #bdc3c7;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 25px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.ad-space h3 {
+    margin-top: 0;
+    color: #34495e;
+    font-size: 1.2em;
+}
+
+.ad-space p {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.ad-space img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto 0 auto;
+    border-radius: 5px;
+}
+
+.top-banner, .bottom-banner {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.bottom-banner-container {
+     padding: 20px 0;
+     text-align: center;
+}
+
+
+.content-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    /* Animation applied via JS */
+}
+
+.content-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.content-section h2 {
+    color: #e74c3c;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #bdc3c7;
+    padding-bottom: 10px;
+    font-size: 2.2em;
+}
+
+.content-section h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #34495e;
+    font-size: 1.6em;
+}
+
+.content-section p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* Styling for the Hand Rankings page */
+.ranking-item {
+    background-color: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+     /* Animation applied via JS */
+}
+
+.ranking-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Larger shadow on hover */
+}
+
+
+.ranking-item h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.8em;
+    flex-basis: 100%;
+}
+
+.ranking-description {
+    flex: 2;
+    min-width: 250px;
+}
+
+.ranking-cards {
+    flex: 1;
+    min-width: 150px;
+    text-align: center;
+}
+
+.card-image {
+    width: 50px;
+    height: auto;
+    margin: 0 3px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: transform 0.2s ease; /* Smooth hover effect */
+}
+
+.card-image:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+
+/* Responsive adjustments for ranking items */
+@media (max-width: 768px) {
+    .ranking-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .ranking-description, .ranking-cards {
+        width: 100%;
+        min-width: auto;
+    }
+    .ranking-cards {
+        text-align: left;
+    }
+}
+
+
+footer {
+    background: #0d1b2a; /* Darker footer */
+    color: #ecf0f1;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 30px;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3); /* Shadow above footer */
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+/* Advanced Animations */
+
+/* Fade In */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide In Up */
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Slide In Right (for sidebars) */
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Initial state for elements that will be animated by JS */
+.content-section, .ranking-item, .content-area, .sidebar {
+    opacity: 0;
+}
+
